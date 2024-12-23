@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 export const Todos = () => {
   const todos = useSelector((state) => state.todos);
-  const check = useSelector((state) => state);
   const dispatch = useDispatch();
 
   return (

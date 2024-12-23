@@ -3,16 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 
 export const Todos = () => {
   const todos = useSelector((state) => state.todos);
+  const check = useSelector((state) => state);
   const dispatch = useDispatch();
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="flex flex-col gap-2 p-2 w-3/4 bg-gray-800 rounded-md shadow-md mt-4">
+      <div className="flex flex-col gap-2 p-2 w-3/4 bg-gray-800 rounded-md shadow-md mt-4 mb-4">
         {todos &&
           todos.map((todo) => (
             <div
               key={todo.id}
-              className="flex items-center justify-between p-2"
+              className="flex items-center justify-between p-2 gap-2 bg-gray-700 rounded-md"
             >
               <span className="text-lg font-semibold text-gray-100 break-words w-3/4 sm:w-4/5">
                 {todo.text}

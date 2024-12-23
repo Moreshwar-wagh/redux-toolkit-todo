@@ -7,7 +7,6 @@ import store from "../app/store";
 export default function Home() {
   return (
     <Provider store={store}>
-      <h1>Learn more about redux toolkit</h1>
       <AddTodo />
       <Todos />
     </Provider>

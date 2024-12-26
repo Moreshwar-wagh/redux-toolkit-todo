@@ -2,13 +2,13 @@ import { removeTodo } from "@/app/features/todo/todoSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export const Todos = () => {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todo.todos);
   const dispatch = useDispatch();
 
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="flex flex-col gap-2 p-2 w-3/4 bg-gray-800 rounded-md shadow-md mt-4 mb-4">
-        {todos &&
+        {todos.length > 0 ? (
           todos.map((todo) => (
             <div
               key={todo.id}
@@ -21,7 +21,6 @@ export const Todos = () => {
                 onClick={() => dispatch(removeTodo(todo.id))}
                 className="p-1 border border-red-500 rounded-md bg-red-200"
               >
-                {/* Add SVG delete trash icon here in red color and border around it */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -38,7 +37,10 @@ export const Todos = () => {
                 </svg>
               </button>
             </div>
-          ))}
+          ))
+        ) : (
+          <p className="text-gray-100 text-center">No todos available</p>
+        )}
       </div>
     </div>
   );
